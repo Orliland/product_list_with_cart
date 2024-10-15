@@ -14,7 +14,7 @@ const App = () => {
 
   async function getProductsList() {
     const res = await fetch("/data.json");
-    const json = res.json();
+    const json = await res.json();
     setProducts(json);
   }
 
