@@ -1,0 +1,30 @@
+.product {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-200);
+}
+
+.product__image img {
+  display: block;
+  width: 100%;
+
+  border-radius: var(--s-100);
+}
+
+.product__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-50);
+}
+
+.product__category {
+  color: var(--rose-500);
+}
+
+.product__name {
+  color: var(--rose-900);
+}
+
+.product__price {
+  color: var(--red);
+}
