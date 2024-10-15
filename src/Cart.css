@@ -1,0 +1,31 @@
+.cart {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-300);
+
+  padding: var(--s-300);
+  border-radius: var(--s-150);
+
+  background-color: var(--white);
+}
+
+.cart__title {
+  color: var(--red);
+}
+
+.cart__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-200);
+
+  padding-block: var(--s-200);
+}
+
+.cart__empty {
+  width: 12.8rem;
+}
+
+.cart__description {
+  color: var(--rose-500);
+}
