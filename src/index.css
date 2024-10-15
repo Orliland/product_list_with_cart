@@ -37,35 +37,35 @@ body {
 }
 
 /* TYPOGRAPHY CLASSES */
-.text__preset__1--bold {
+.text__preset__1 {
   font-size: 5.6rem;
   font-weight: 700;
   line-height: 120%;
   letter-spacing: 0rem;
 }
 
-.text__preset__2--bold {
+.text__preset__2 {
   font-size: 2.4rem;
   font-weight: 700;
   line-height: 125%;
   letter-spacing: 0rem;
 }
 
-.text__preset__3--bold {
+.text__preset__3 {
   font-size: 1.6rem;
   font-weight: 700;
   line-height: 150%;
   letter-spacing: 0rem;
 }
 
-.text__preset__4--regular {
+.text__preset__4 {
   font-size: 1.4rem;
   font-weight: 400;
   line-height: 150%;
   letter-spacing: 0rem;
 }
 
-.text__preset__4--semi-bold {
+.text__preset__4--bold {
   font-size: 1.4rem;
   font-weight: 600;
   line-height: 150%;
