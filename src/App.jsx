@@ -1,5 +1,17 @@
+import Cart from "./Cart";
+
+import "./App.css";
+
 const App = () => {
-  return <h1>Product List With Cart</h1>;
+  return (
+    <main className="main">
+      <header className="header">
+        <h1 className="logo text__preset__1">Desserts</h1>
+      </header>
+      <section className="products">j</section>
+      <Cart />
+    </main>
+  );
 };
 
 export default App;
