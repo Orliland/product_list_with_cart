@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: "Red Hat Text Variable", sans-serif;
+  font-size: 62.5%;
+
+  /* COLORS */
+  --red: #c73b0f;
+  --green: #1ea575;
+  --rose-50: #fcf8f6;
+  --rose-100: #f5eeec;
+  --rose-300: #caafa7;
+  --rose-400: #ad8a85;
+  --rose-500: #87635a;
+  --rose-900: #260f08;
+  --black: #000000;
+  --white: #ffffff;
+
+  /* SPACING */
+  --s-50: 0.4rem;
+  --s-100: 0.8rem;
+  --s-150: 1.2rem;
+  --s-200: 1.6rem;
+  --s-300: 2.4rem;
+  --s-400: 3.2rem;
+  --s-500: 4rem;
+  --s-1000: 8.8rem;
+}
+
+body {
+  margin: 0;
+}
+
+/* TYPOGRAPHY CLASSES */
+.text__preset__1--bold {
+  font-size: 5.6rem;
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: 0rem;
+}
+
+.text__preset__2--bold {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 125%;
+  letter-spacing: 0rem;
+}
+
+.text__preset__3--bold {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: 0rem;
+}
+
+.text__preset__4--regular {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0rem;
+}
+
+.text__preset__4--semi-bold {
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 150%;
+  letter-spacing: 0rem;
+}
