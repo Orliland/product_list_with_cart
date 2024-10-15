@@ -1,0 +1,40 @@
+/* Mobile First */
+.main {
+  display: grid;
+  gap: var(--s-400);
+
+  padding: var(--s-300);
+}
+
+.logo {
+  color: var(--rose-900);
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .main {
+    padding: var(--s-500);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .main {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto 1fr;
+  }
+  .header {
+    grid-column: 1/2;
+    grid-row: 1/2;
+
+    padding: var(--s-1000);
+  }
+  .products {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  .cart {
+    grid-column: 2/3;
+    grid-row: 1/3;
+  }
+}
