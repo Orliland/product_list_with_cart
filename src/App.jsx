@@ -49,7 +49,7 @@ const App = () => {
         onAddToCart={handleAddToCart}
         onRemoveFromCart={handleRemoveFromCart}
       />
-      <Cart cartProducts={cartProducts} />
+      <Cart cartProducts={cartProducts} products={products} />
     </main>
   );
 };

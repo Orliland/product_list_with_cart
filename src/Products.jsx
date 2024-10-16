@@ -33,7 +33,9 @@ const ProductCard = ({
           {product.category}
         </span>
         <h3 className="product__name text__preset__3">{product.name}</h3>
-        <span className="product__price text__preset__3">${product.price}</span>
+        <span className="product__price text__preset__3">
+          ${product.price.toLocaleString("en", { minimumFractionDigits: 2 })}
+        </span>
       </div>
     </article>
   );
@@ -63,3 +65,50 @@ const Products = ({
 };
 
 export default Products;
+
+const MinifiedProduct = ({ product, countProduct }) => {
+  return (
+    <>
+      <article className="minified-product">
+        <div className="minified-product__body">
+          <h3 className="minified-product__name text__preset__4--bold">
+            {product.name}
+          </h3>
+          <div className="minified-product__description">
+            <span className="minified-product__quantity text__preset__4--bold">
+              {countProduct}x
+            </span>
+            <span className="minified-product__price text__preset__4">
+              @ $
+              {product.price.toLocaleString("en", { minimumFractionDigits: 2 })}
+            </span>
+            <span className="minified-product__total text__preset__4--bold">
+              $
+              {(countProduct * product.price).toLocaleString("en", {
+                minimumFractionDigits: 2,
+              })}
+            </span>
+          </div>
+        </div>
+      </article>
+      <hr className="minified-product__divisor" />
+    </>
+  );
+};
+
+export const MinifiedProducts = ({ cartProducts, products }) => {
+  const addedProducts = Object.keys(cartProducts);
+  return (
+    <section className="minified-products">
+      {addedProducts.map((productID) => {
+        return (
+          <MinifiedProduct
+            key={productID}
+            product={products.filter((p) => p.id == productID)[0]}
+            countProduct={cartProducts[productID]}
+          />
+        );
+      })}
+    </section>
+  );
+};

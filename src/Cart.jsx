@@ -1,7 +1,9 @@
 import "./Cart.css";
 import EmptyCart from "./assets/illustration-empty-cart.svg";
 
-const Cart = ({ cartProducts }) => {
+import { MinifiedProducts } from "./Products";
+
+const Cart = ({ cartProducts, products }) => {
   // TODO: show current products in the cart
   let countProducts = 0;
 
@@ -15,7 +17,9 @@ const Cart = ({ cartProducts }) => {
         Your Cart <span>({countProducts})</span>
       </h2>
       <div className="cart__body">
-        {countProducts > 0 ? null : (
+        {countProducts > 0 ? (
+          <MinifiedProducts cartProducts={cartProducts} products={products} />
+        ) : (
           <div className="cart--empty">
             <img
               src={EmptyCart}

@@ -34,3 +34,37 @@
 .product__price {
   color: var(--red);
 }
+
+.minified-product {
+  display: flex;
+  justify-content: space-between;
+}
+
+.minified-product__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-100);
+}
+
+.minified-product__name {
+  color: var(--rose-900);
+}
+
+.minified-product__description {
+  display: flex;
+  gap: var(--s-100);
+}
+
+.minified-product__quantity {
+  color: var(--red);
+}
+
+.minified-product__price,
+.minified-product__total {
+  color: var(--rose-500);
+}
+
+.minified-product__divisor {
+  border: none;
+  border-bottom: 0.1rem solid var(--rose-100);
+}
