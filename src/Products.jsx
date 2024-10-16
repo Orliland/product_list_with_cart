@@ -28,8 +28,8 @@ const ProductCard = ({ data }) => {
 const Products = ({ products }) => {
   return (
     <section className="products">
-      {products.map((product, index) => {
-        return <ProductCard data={product} key={index} />;
+      {products.map((product) => {
+        return <ProductCard data={product} key={product.id} />;
       })}
     </section>
   );
