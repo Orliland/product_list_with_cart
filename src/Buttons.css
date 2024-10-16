@@ -1,0 +1,25 @@
+.button__add-cart {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--s-100);
+
+  padding: var(--s-150) 2.8rem;
+  border: 0.1rem solid var(--rose-400);
+  border-radius: 999rem;
+
+  background-color: var(--white);
+  color: var(--rose-900);
+}
+
+.button__add-cart img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.button__add-cart:hover {
+  cursor: pointer;
+  color: var(--red);
+}

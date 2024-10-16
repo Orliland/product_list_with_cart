@@ -30,3 +30,9 @@
 .cart__description {
   color: var(--rose-500);
 }
+
+@media (min-width: 1024px) {
+  .cart {
+    min-width: 384px;
+  }
+}
