@@ -29,8 +29,10 @@ const App = () => {
 
   const handleRemoveFromCart = (id) => {
     if (cartProducts[id] == 1) {
-      const removeFromObject = delete cartProducts[id];
-      setCartProducts(removeFromObject);
+      const newObject = { ...cartProducts };
+      delete newObject[id];
+
+      setCartProducts(newObject);
     } else {
       setCartProducts({ ...cartProducts, [id]: cartProducts[id] - 1 });
     }
@@ -47,7 +49,7 @@ const App = () => {
         onAddToCart={handleAddToCart}
         onRemoveFromCart={handleRemoveFromCart}
       />
-      <Cart />
+      <Cart cartProducts={cartProducts} />
     </main>
   );
 };
