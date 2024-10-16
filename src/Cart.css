@@ -14,7 +14,7 @@
   color: var(--red);
 }
 
-.cart__body {
+.cart--empty {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,11 +23,11 @@
   padding-block: var(--s-200);
 }
 
-.cart__empty {
+.cart--empty__image {
   width: 12.8rem;
 }
 
-.cart__description {
+.cart--empty__description {
   color: var(--rose-500);
 }
 

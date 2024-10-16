@@ -1,20 +1,32 @@
 import "./Cart.css";
 import EmptyCart from "./assets/illustration-empty-cart.svg";
 
-const Cart = () => {
-  // TODO: reading state to show current products in the cart
+const Cart = ({ cartProducts }) => {
   // TODO: show current products in the cart
-  // TODO: empty cart
+  let countProducts = 0;
+
+  for (const product in cartProducts) {
+    countProducts += cartProducts[product];
+  }
+
   return (
     <aside className="cart">
       <h2 className="cart__title text__preset__2">
-        Your Cart <span>(0)</span>
+        Your Cart <span>({countProducts})</span>
       </h2>
       <div className="cart__body">
-        <img src={EmptyCart} alt="Empty cart" className="cart__empty" />
-        <p className="cart__description text__preset__4--bold">
-          Your added items will appear here
-        </p>
+        {countProducts > 0 ? null : (
+          <div className="cart--empty">
+            <img
+              src={EmptyCart}
+              alt="Empty cart"
+              className="cart--empty__image"
+            />
+            <p className="cart--empty__description text__preset__4--bold">
+              Your added items will appear here
+            </p>
+          </div>
+        )}
       </div>
     </aside>
   );
