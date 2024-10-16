@@ -23,3 +23,38 @@
   cursor: pointer;
   color: var(--red);
 }
+
+.button--control {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 16rem;
+  padding: var(--s-150);
+  border-radius: 999rem;
+
+  background-color: var(--red);
+  color: var(--white);
+}
+
+.button--control__item {
+  display: grid;
+  place-content: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 0.1rem solid var(--white);
+  border-radius: 50%;
+
+  background-color: var(--red);
+}
+
+.button--control__item:hover {
+  cursor: pointer;
+  background-color: var(--white);
+}
+
+.button--control__item:hover img {
+  filter: brightness(0) saturate(100%) invert(23%) sepia(35%) saturate(4627%)
+    hue-rotate(358deg) brightness(105%) contrast(92%);
+}
