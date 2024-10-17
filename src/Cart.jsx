@@ -18,11 +18,13 @@ const Cart = ({ cartProducts, products, onRemoveProduct }) => {
       </h2>
       <div className="cart__body">
         {countProducts > 0 ? (
-          <MinifiedProducts
-            cartProducts={cartProducts}
-            products={products}
-            onRemoveProduct={onRemoveProduct}
-          />
+          <>
+            <MinifiedProducts
+              cartProducts={cartProducts}
+              products={products}
+              onRemoveProduct={onRemoveProduct}
+            />
+          </>
         ) : (
           <div className="cart--empty">
             <img
@@ -36,6 +38,7 @@ const Cart = ({ cartProducts, products, onRemoveProduct }) => {
           </div>
         )}
       </div>
+      {countProducts > 0 ? <hr className="minified-product__divisor" /> : null}
     </aside>
   );
 };
