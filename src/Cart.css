@@ -36,3 +36,28 @@
     min-width: 384px;
   }
 }
+
+.cart--order {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart--order__label,
+.cart--order__total {
+  color: var(--rose-900);
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--s-100);
+
+  padding: var(--s-200);
+  border-radius: var(--s-100);
+
+  background-color: var(--rose-50);
+
+  color: var(--rose-900);
+}

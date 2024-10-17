@@ -1,14 +1,19 @@
 import "./Cart.css";
 import EmptyCart from "./assets/illustration-empty-cart.svg";
+import CarbonNeutralIcon from "./assets/icon-carbon-neutral.svg";
 
 import { MinifiedProducts } from "./Products";
 
 const Cart = ({ cartProducts, products, onRemoveProduct }) => {
   // TODO: show current products in the cart
   let countProducts = 0;
+  let total = 0;
 
   for (const product in cartProducts) {
+    const productData = products.filter((p) => p.id == product)[0];
+    console.log(productData);
     countProducts += cartProducts[product];
+    total += cartProducts[product] * productData.price;
   }
 
   return (
@@ -38,7 +43,33 @@ const Cart = ({ cartProducts, products, onRemoveProduct }) => {
           </div>
         )}
       </div>
-      {countProducts > 0 ? <hr className="minified-product__divisor" /> : null}
+      {countProducts > 0 ? (
+        <>
+          <hr className="minified-product__divisor" />
+
+          <div className="cart--order">
+            <span className="cart--order__label text__preset__4">
+              Order Total
+            </span>
+            <span className="cart--order__total text__preset__2">
+              ${total.toLocaleString("en", { minimumFractionDigits: 2 })}
+            </span>
+          </div>
+
+          <div className="legend">
+            <img
+              className="legend__icon"
+              src={CarbonNeutralIcon}
+              alt="carbono neutral"
+            />
+            <p className="legend__description text__preset__4">
+              This is a{" "}
+              <span className="text__preset__4--bold">carbon-neutral</span>{" "}
+              delivery
+            </p>
+          </div>
+        </>
+      ) : null}
     </aside>
   );
 };
