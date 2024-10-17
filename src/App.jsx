@@ -38,6 +38,12 @@ const App = () => {
     }
   };
 
+  const handleRemoveProduct = (id) => {
+    const newObject = { ...cartProducts };
+    delete newObject[id];
+    setCartProducts(newObject);
+  };
+
   return (
     <main className="main">
       <header className="header">
@@ -49,7 +55,11 @@ const App = () => {
         onAddToCart={handleAddToCart}
         onRemoveFromCart={handleRemoveFromCart}
       />
-      <Cart cartProducts={cartProducts} products={products} />
+      <Cart
+        cartProducts={cartProducts}
+        products={products}
+        onRemoveProduct={handleRemoveProduct}
+      />
     </main>
   );
 };

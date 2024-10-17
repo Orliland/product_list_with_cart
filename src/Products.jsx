@@ -1,6 +1,7 @@
-import { AddToCart, ControlCart } from "./Buttons";
+import { AddToCart, ControlCart, RemoveProduct } from "./Buttons";
 import "./Products.css";
 import "./Product.css";
+import "./Buttons.css";
 
 const ProductCard = ({
   product,
@@ -66,7 +67,7 @@ const Products = ({
 
 export default Products;
 
-const MinifiedProduct = ({ product, countProduct }) => {
+const MinifiedProduct = ({ product, countProduct, onRemoveProduct }) => {
   return (
     <>
       <article className="minified-product">
@@ -90,13 +91,18 @@ const MinifiedProduct = ({ product, countProduct }) => {
             </span>
           </div>
         </div>
+        <RemoveProduct id={product.id} onRemoveProduct={onRemoveProduct} />
       </article>
       <hr className="minified-product__divisor" />
     </>
   );
 };
 
-export const MinifiedProducts = ({ cartProducts, products }) => {
+export const MinifiedProducts = ({
+  cartProducts,
+  products,
+  onRemoveProduct,
+}) => {
   const addedProducts = Object.keys(cartProducts);
   return (
     <section className="minified-products">
@@ -106,6 +112,7 @@ export const MinifiedProducts = ({ cartProducts, products }) => {
             key={productID}
             product={products.filter((p) => p.id == productID)[0]}
             countProduct={cartProducts[productID]}
+            onRemoveProduct={onRemoveProduct}
           />
         );
       })}

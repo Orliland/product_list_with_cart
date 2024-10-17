@@ -3,7 +3,7 @@ import EmptyCart from "./assets/illustration-empty-cart.svg";
 
 import { MinifiedProducts } from "./Products";
 
-const Cart = ({ cartProducts, products }) => {
+const Cart = ({ cartProducts, products, onRemoveProduct }) => {
   // TODO: show current products in the cart
   let countProducts = 0;
 
@@ -18,7 +18,11 @@ const Cart = ({ cartProducts, products }) => {
       </h2>
       <div className="cart__body">
         {countProducts > 0 ? (
-          <MinifiedProducts cartProducts={cartProducts} products={products} />
+          <MinifiedProducts
+            cartProducts={cartProducts}
+            products={products}
+            onRemoveProduct={onRemoveProduct}
+          />
         ) : (
           <div className="cart--empty">
             <img
