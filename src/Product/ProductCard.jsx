@@ -1,3 +1,4 @@
+import { Button } from "../Buttons";
 import "./ProductCard.css";
 
 const ProductCard = ({ product }) => {
@@ -13,6 +14,7 @@ const ProductCard = ({ product }) => {
         {/* TODO: add buttons */}
         {/* 
         
+        
         {cartProducts[product.id] ? (
           <ControlCart
             id={product.id}
@@ -25,6 +27,10 @@ const ProductCard = ({ product }) => {
         )}
         
         */}
+
+        <Button type="secondary" icon="cart">
+          Add to Cart
+        </Button>
       </div>
 
       <div className="card__body">

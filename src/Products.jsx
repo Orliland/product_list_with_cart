@@ -49,7 +49,9 @@ export const MinifiedProducts = ({
       />
     );
 
-    minifiedProducts.push(<hr className="minified-product__divisor" />);
+    minifiedProducts.push(
+      <hr key={productID + "hr"} className="minified-product__divisor" />
+    );
   });
 
   minifiedProducts.pop();

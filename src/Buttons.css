@@ -30,7 +30,7 @@
   background-color: rgba(0, 0, 0, 0.25);
 }
 
-.button__add-cart {
+.button--secondary {
   position: absolute;
   bottom: 0;
   display: flex;
@@ -38,21 +38,26 @@
   align-items: center;
   gap: var(--s-100);
 
+  width: auto;
   padding: var(--s-150) 2.8rem;
   border: 0.1rem solid var(--rose-400);
-  border-radius: 999rem;
 
   background-color: var(--white);
   color: var(--rose-900);
 }
 
-.button__add-cart img {
+.button--secondary:hover.button::before {
+  content: "";
+  width: 0rem;
+  height: 0rem;
+}
+
+.button__icon {
   width: 2rem;
   height: 2rem;
 }
 
-.button__add-cart:hover {
-  cursor: pointer;
+.button--secondary:hover {
   color: var(--red);
 }
 
