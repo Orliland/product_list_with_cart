@@ -1,10 +1,11 @@
-import Products from "./Products";
-import Cart from "./Cart";
-
-import "./App.css";
 import { useEffect } from "react";
 import { useState } from "react";
 import { ProductsContext } from "./utils/ProductsContext";
+
+import "./App.css";
+
+import ProductsGrid from "./ProductsGrid";
+import Cart from "./Cart";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -77,7 +78,7 @@ const App = () => {
         <h1 className="logo text__preset__1">Desserts</h1>
       </header>
       <ProductsContext.Provider value={products}>
-        <Products
+        <ProductsGrid
           cartProducts={cartProducts}
           products={products}
           onAddToCart={handleAddToCart}

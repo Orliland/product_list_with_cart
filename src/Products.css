@@ -1,10 +1,10 @@
-.products {
+.products-grid {
   display: grid;
   gap: var(--s-300);
 }
 
 @media (min-width: 768px) {
-  .products {
+  .products-grid {
     grid-template-columns: repeat(3, 1fr);
     row-gap: var(--s-400);
     column-gap: var(--s-300);
