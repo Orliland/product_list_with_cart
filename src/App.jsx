@@ -7,18 +7,36 @@ import { useState } from "react";
 
 const App = () => {
   const [products, setProducts] = useState([]);
-  const [cartProducts, setCartProducts] = useState({});
+  const [cartProducts, setCartProducts] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    getProductsList();
+    const productsLocal = localStorage.getItem("products");
+
+    if (productsLocal) {
+      setProducts(JSON.parse(productsLocal));
+    } else {
+      getProductsList();
+    }
+
+    async function getProductsList() {
+      const res = await fetch("/data.json");
+      const json = await res.json();
+      localStorage.setItem("products", JSON.stringify(json));
+      setProducts(json);
+    }
   }, []);
 
-  async function getProductsList() {
-    const res = await fetch("/data.json");
-    const json = await res.json();
-    setProducts(json);
-  }
+  useEffect(() => {
+    const cartProductsLocal = localStorage.getItem("cartProductsLocal");
+    if (cartProductsLocal && cartProducts == false) {
+      setCartProducts(JSON.parse(cartProductsLocal));
+    } else if (cartProducts == false) {
+      setCartProducts({});
+    } else {
+      localStorage.setItem("cartProductsLocal", JSON.stringify(cartProducts));
+    }
+  }, [cartProducts]);
 
   const handleAddToCart = (id) => {
     if (cartProducts[id]) {
