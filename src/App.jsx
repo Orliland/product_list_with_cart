@@ -4,6 +4,7 @@ import Cart from "./Cart";
 import "./App.css";
 import { useEffect } from "react";
 import { useState } from "react";
+import { ProductsContext } from "./utils/ProductsContext";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -75,19 +76,21 @@ const App = () => {
       <header className="header">
         <h1 className="logo text__preset__1">Desserts</h1>
       </header>
-      <Products
-        cartProducts={cartProducts}
-        products={products}
-        onAddToCart={handleAddToCart}
-        onRemoveFromCart={handleRemoveFromCart}
-      />
-      <Cart
-        cartProducts={cartProducts}
-        products={products}
-        onRemoveProduct={handleRemoveProduct}
-        showModal={showModal}
-        handleModal={handleModal}
-      />
+      <ProductsContext.Provider value={products}>
+        <Products
+          cartProducts={cartProducts}
+          products={products}
+          onAddToCart={handleAddToCart}
+          onRemoveFromCart={handleRemoveFromCart}
+        />
+        <Cart
+          cartProducts={cartProducts}
+          products={products}
+          onRemoveProduct={handleRemoveProduct}
+          showModal={showModal}
+          handleModal={handleModal}
+        />
+      </ProductsContext.Provider>
     </main>
   );
 };
