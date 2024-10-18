@@ -3,6 +3,7 @@ import EmptyCart from "./assets/illustration-empty-cart.svg";
 import CarbonNeutralIcon from "./assets/icon-carbon-neutral.svg";
 
 import { MinifiedProducts } from "./Products";
+import { Button } from "./Buttons";
 
 const Cart = ({ cartProducts, products, onRemoveProduct }) => {
   // TODO: show current products in the cart
@@ -68,6 +69,8 @@ const Cart = ({ cartProducts, products, onRemoveProduct }) => {
               delivery
             </p>
           </div>
+
+          <Button>Confirm Order</Button>
         </>
       ) : null}
     </aside>

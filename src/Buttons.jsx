@@ -50,3 +50,11 @@ export const RemoveProduct = ({ id, onRemoveProduct }) => {
     </button>
   );
 };
+
+export const Button = ({ children }) => {
+  return (
+    <button className="button text__preset__3">
+      <span>{children}</span>
+    </button>
+  );
+};
