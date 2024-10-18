@@ -4,15 +4,22 @@ import CarbonNeutralIcon from "./assets/icon-carbon-neutral.svg";
 
 import { MinifiedProducts } from "./Products";
 import { Button } from "./Buttons";
+import OrderSuccess from "./OrderSuccess";
+import { createPortal } from "react-dom";
 
-const Cart = ({ cartProducts, products, onRemoveProduct }) => {
+const Cart = ({
+  cartProducts,
+  products,
+  onRemoveProduct,
+  showModal,
+  handleModal,
+}) => {
   // TODO: show current products in the cart
   let countProducts = 0;
   let total = 0;
 
   for (const product in cartProducts) {
     const productData = products.filter((p) => p.id == product)[0];
-    console.log(productData);
     countProducts += cartProducts[product];
     total += cartProducts[product] * productData.price;
   }
@@ -70,7 +77,17 @@ const Cart = ({ cartProducts, products, onRemoveProduct }) => {
             </p>
           </div>
 
-          <Button>Confirm Order</Button>
+          <Button onClick={handleModal}>Confirm Order</Button>
+          {showModal &&
+            createPortal(
+              <OrderSuccess
+                handleModal={handleModal}
+                products={products}
+                cartProducts={cartProducts}
+                onRemoveProduct={onRemoveProduct}
+              />,
+              document.body
+            )}
         </>
       ) : null}
     </aside>

@@ -51,9 +51,9 @@ export const RemoveProduct = ({ id, onRemoveProduct }) => {
   );
 };
 
-export const Button = ({ children }) => {
+export const Button = ({ children, onClick }) => {
   return (
-    <button className="button text__preset__3">
+    <button className="button text__preset__3" onClick={() => onClick()}>
       <span>{children}</span>
     </button>
   );

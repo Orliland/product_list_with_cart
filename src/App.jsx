@@ -8,6 +8,7 @@ import { useState } from "react";
 const App = () => {
   const [products, setProducts] = useState([]);
   const [cartProducts, setCartProducts] = useState({});
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     getProductsList();
@@ -44,6 +45,13 @@ const App = () => {
     setCartProducts(newObject);
   };
 
+  const handleModal = () => {
+    if (showModal) {
+      setCartProducts({});
+    }
+    setShowModal(!showModal);
+  };
+
   return (
     <main className="main">
       <header className="header">
@@ -59,6 +67,8 @@ const App = () => {
         cartProducts={cartProducts}
         products={products}
         onRemoveProduct={handleRemoveProduct}
+        showModal={showModal}
+        handleModal={handleModal}
       />
     </main>
   );
