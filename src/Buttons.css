@@ -75,7 +75,7 @@
   color: var(--white);
 }
 
-.button--control__item {
+.button-icon {
   display: grid;
   place-content: center;
   width: 1.8rem;
@@ -86,14 +86,19 @@
   background-color: var(--red);
 }
 
-.button--control__item:hover {
+.button-icon:hover {
   cursor: pointer;
   background-color: var(--white);
 }
 
-.button--control__item:hover img {
+.button-icon:hover img {
   filter: brightness(0) saturate(100%) invert(23%) sepia(35%) saturate(4627%)
     hue-rotate(358deg) brightness(105%) contrast(92%);
+}
+
+.button-icon .button__icon {
+  width: 1rem;
+  height: auto;
 }
 
 .button--remove {

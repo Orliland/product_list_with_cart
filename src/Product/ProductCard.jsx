@@ -1,7 +1,13 @@
-import { Button } from "../Buttons";
+import { useContext } from "react";
+import { CartProductsContext } from "../utils/ProductsContext";
+
+import { Button, ButtonContainer } from "../Buttons";
+
 import "./ProductCard.css";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, onAddToCart, onRemoveFromCart }) => {
+  const cartProducts = useContext(CartProductsContext);
+
   return (
     <article className="card">
       <div className="card__header">
@@ -11,26 +17,25 @@ const ProductCard = ({ product }) => {
           <img src={product.image.mobile} alt={product.name} />
         </picture>
 
-        {/* TODO: add buttons */}
-        {/* 
-        
-        
         {cartProducts[product.id] ? (
-          <ControlCart
-            id={product.id}
+          <ButtonContainer
+            productId={product.id}
             onAddToCart={onAddToCart}
-            cartCountProduct={cartProducts[product.id]}
             onRemoveFromCart={onRemoveFromCart}
-          />
+          >
+            {cartProducts[product.id]}
+          </ButtonContainer>
         ) : (
-          <AddToCart id={product.id} onAddToCart={onAddToCart} />
+          <Button
+            type="secondary"
+            icon="cart"
+            onClick={() => {
+              onAddToCart(product.id);
+            }}
+          >
+            Add to Cart
+          </Button>
         )}
-        
-        */}
-
-        <Button type="secondary" icon="cart">
-          Add to Cart
-        </Button>
       </div>
 
       <div className="card__body">

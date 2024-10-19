@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { ProductsContext } from "./utils/ProductsContext";
+import { ProductsContext, CartProductsContext } from "./utils/ProductsContext";
 
 import "./App.css";
 
@@ -78,19 +78,21 @@ const App = () => {
         <h1 className="logo text__preset__1">Desserts</h1>
       </header>
       <ProductsContext.Provider value={products}>
-        <ProductsGrid
-          cartProducts={cartProducts}
-          products={products}
-          onAddToCart={handleAddToCart}
-          onRemoveFromCart={handleRemoveFromCart}
-        />
-        <Cart
-          cartProducts={cartProducts}
-          products={products}
-          onRemoveProduct={handleRemoveProduct}
-          showModal={showModal}
-          handleModal={handleModal}
-        />
+        <CartProductsContext.Provider value={cartProducts}>
+          <ProductsGrid
+            cartProducts={cartProducts}
+            products={products}
+            onAddToCart={handleAddToCart}
+            onRemoveFromCart={handleRemoveFromCart}
+          />
+          <Cart
+            cartProducts={cartProducts}
+            products={products}
+            onRemoveProduct={handleRemoveProduct}
+            showModal={showModal}
+            handleModal={handleModal}
+          />
+        </CartProductsContext.Provider>
       </ProductsContext.Provider>
     </main>
   );

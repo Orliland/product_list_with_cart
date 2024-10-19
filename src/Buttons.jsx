@@ -10,6 +10,12 @@ const Icon = ({ icon }) => {
   switch (icon) {
     case "cart":
       selectedIcon = CartIcon;
+      break;
+    case "add":
+      selectedIcon = AddIcon;
+      break;
+    case "decrease":
+      selectedIcon = DecreaseIcon;
   }
 
   return <img src={selectedIcon} alt="icon" className="button__icon" />;
@@ -27,19 +33,28 @@ export const Button = ({ children, type, onClick, icon }) => {
   );
 };
 
-export const ButtonContainer = () => {};
+export const ButtonContainer = ({
+  children,
+  productId,
+  onAddToCart,
+  onRemoveFromCart,
+}) => {
+  return (
+    <div className="button--control">
+      <ButtonIcon onClick={() => onRemoveFromCart(productId)} icon="decrease" />
+      <span className="text__preset__4--bold">{children}</span>
+      <ButtonIcon onClick={() => onAddToCart(productId)} icon="add" />
+    </div>
+  );
+};
 
-// export const AddToCart = ({ id, onAddToCart }) => {
-//   return (
-//     <button
-//       className="button__add-cart text__preset__4--bold"
-//       onClick={() => onAddToCart(id)}
-//     >
-//       <img src={CartIcon} alt="Add to cart" />
-//       Add to Cart
-//     </button>
-//   );
-// };
+const ButtonIcon = ({ onClick, icon }) => {
+  return (
+    <button className="button-icon" onClick={() => onClick()}>
+      <Icon icon={icon} />
+    </button>
+  );
+};
 
 // export const ControlCart = ({
 //   id,
@@ -60,6 +75,18 @@ export const ButtonContainer = () => {};
 //         <img src={AddIcon} alt="Add once product to cart" />
 //       </button>
 //     </div>
+//   );
+// };
+
+// export const AddToCart = ({ id, onAddToCart }) => {
+//   return (
+//     <button
+//       className="button__add-cart text__preset__4--bold"
+//       onClick={() => onAddToCart(id)}
+//     >
+//       <img src={CartIcon} alt="Add to cart" />
+//       Add to Cart
+//     </button>
 //   );
 // };
 

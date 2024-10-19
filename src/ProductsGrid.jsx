@@ -5,13 +5,20 @@ import ProductCard from "./Product/ProductCard";
 
 import "./Products.css";
 
-const ProductsGrid = () => {
+const ProductsGrid = ({ onAddToCart, onRemoveFromCart }) => {
   const products = useContext(ProductsContext);
 
   return (
     <section className="products-grid">
       {products.map((product) => {
-        return <ProductCard key={product.id} product={product} />;
+        return (
+          <ProductCard
+            key={product.id}
+            product={product}
+            onAddToCart={onAddToCart}
+            onRemoveFromCart={onRemoveFromCart}
+          />
+        );
       })}
     </section>
   );
