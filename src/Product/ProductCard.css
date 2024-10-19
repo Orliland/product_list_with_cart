@@ -17,6 +17,10 @@
   border-radius: var(--s-100);
 }
 
+.card__image--selected img {
+  border: 0.2rem solid var(--red);
+}
+
 .card__body {
   display: flex;
   flex-direction: column;

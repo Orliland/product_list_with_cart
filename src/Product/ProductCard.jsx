@@ -11,7 +11,11 @@ const ProductCard = ({ product, onIncreaseProduct, onDecreaseProduct }) => {
   return (
     <article className="card">
       <div className="card__header">
-        <picture className="card__image">
+        <picture
+          className={`card__image ${
+            cartProducts[product.id] && "card__image--selected"
+          }`}
+        >
           <source srcSet={product.image.desktop} media="(min-width: 1024px)" />
           <source srcSet={product.image.tablet} media="(min-width: 768px)" />
           <img src={product.image.mobile} alt={product.name} />
