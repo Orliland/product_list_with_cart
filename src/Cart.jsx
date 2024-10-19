@@ -22,7 +22,7 @@ const Cart = ({ onRemoveProduct, handleModal, showModal }) => {
 
   return (
     <aside className="cart">
-      <h2 className="card__title text__preset__2">
+      <h2 className="cart__title text__preset__2">
         Your Cart <span>({countProducts})</span>
       </h2>
 
