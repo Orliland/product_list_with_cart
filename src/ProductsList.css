@@ -1,3 +1,9 @@
+.products-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-300);
+}
+
 .divisor {
   border: none;
   border-bottom: 0.1rem solid var(--rose-100);
@@ -18,4 +24,15 @@
 
 .empty__description {
   color: var(--rose-500);
+}
+
+.order {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order__label,
+.order__total {
+  color: var(--rose-900);
 }

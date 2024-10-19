@@ -59,36 +59,4 @@ const Cart = ({ onRemoveProduct, handleModal, showModal }) => {
   );
 };
 
-const CartLegacy = ({ onRemoveProduct, showModal, handleModal }) => {
-  return (
-    <aside className="cart">
-      {/* <div className="cart__body">
-        {countProducts > 0 ? (
-          <>
-            <MinifiedProducts
-              cartProducts={cartProducts}
-              products={products}
-              onRemoveProduct={onRemoveProduct}
-            />
-          </>
-        ) : (
-         
-        )}
-      </div> */}
-      {countProducts > 0 ? (
-        <>
-          {/* <div className="cart--order">
-            <span className="cart--order__label text__preset__4">
-              Order Total
-            </span>
-            <span className="cart--order__total text__preset__2">
-              ${total.toLocaleString("en", { minimumFractionDigits: 2 })}
-            </span>
-          </div> */}
-        </>
-      ) : null}
-    </aside>
-  );
-};
-
 export default Cart;
