@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { ProductsContext, CartProductsContext } from "./utils/ProductsContext";
 import EmptyCart from "./assets/illustration-empty-cart.svg";
+import ProductMinified from "./Product/ProductMinified";
 
 import "./ProductsList.css";
 
-const ProductsList = ({ countProducts }) => {
+const ProductsList = ({ countProducts, type, onRemoveProduct }) => {
   const products = useContext(ProductsContext);
   const cartProducts = useContext(CartProductsContext);
 
@@ -15,15 +16,41 @@ const ProductsList = ({ countProducts }) => {
     total += cartProducts[product] * productData.price;
   }
 
+  const addedProducts = Object.keys(cartProducts);
+  const productsMinified = [];
+
+  addedProducts.forEach((productId) => {
+    productsMinified.push(
+      <ProductMinified
+        key={productId}
+        product={products.filter((p) => p.id == productId)[0]}
+        countProduct={cartProducts[productId]}
+        onRemoveProduct={onRemoveProduct}
+        type={type}
+      />
+    );
+
+    productsMinified.push(<hr key={productId + "hr"} className="divisor" />);
+  });
+
+  productsMinified.pop();
+
   return (
     <>
       {countProducts > 0 ? (
-        <section className="products-list">
+        <section
+          className={`products-list ${
+            type === "secondary" && "products-list--secondary"
+          }`}
+        >
+          <div className="products__minified">{productsMinified}</div>
           <hr className="divisor" />
 
-          <div className="order">
-            <span className="order__label text__preset__4">Order Total</span>
-            <span className="order__total text__preset__2">
+          <div className="products-list__summary">
+            <span className="products-list__label text__preset__4">
+              Order Total
+            </span>
+            <span className="products-list__total text__preset__2">
               ${total.toLocaleString("en", { minimumFractionDigits: 2 })}
             </span>
           </div>

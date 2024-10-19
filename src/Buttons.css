@@ -101,26 +101,18 @@
   height: auto;
 }
 
-.button--remove {
-  align-self: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 1.8rem;
-  height: 1.8rem;
+.button-icon.secondary {
   border: 0.1rem solid var(--rose-400);
-  border-radius: 50%;
 
   background-color: var(--white);
 }
 
-.button--remove:hover {
+.button-icon.secondary:hover {
   cursor: pointer;
   border-color: var(--rose-900);
 }
 
-.button--remove:hover .button--remove__icon {
+.button-icon.secondary:hover .button__icon {
   filter: brightness(0) saturate(100%) invert(5%) sepia(20%) saturate(6250%)
     hue-rotate(353deg) brightness(97%) contrast(95%);
 }

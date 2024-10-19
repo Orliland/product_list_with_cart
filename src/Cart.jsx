@@ -2,11 +2,12 @@ import { createPortal } from "react-dom";
 import { useContext } from "react";
 import { ProductsContext, CartProductsContext } from "./utils/ProductsContext";
 
-import { Button } from "./Buttons";
-import CarbonNeutralIcon from "./assets/icon-carbon-neutral.svg";
-
-import "./Cart.css";
 import ProductsList from "./ProductsList";
+import { Button } from "./Buttons";
+import OrderSuccess from "./OrderSuccess";
+
+import CarbonNeutralIcon from "./assets/icon-carbon-neutral.svg";
+import "./Cart.css";
 
 const Cart = ({ onRemoveProduct, handleModal, showModal }) => {
   const products = useContext(ProductsContext);
@@ -25,7 +26,10 @@ const Cart = ({ onRemoveProduct, handleModal, showModal }) => {
         Your Cart <span>({countProducts})</span>
       </h2>
 
-      <ProductsList countProducts={countProducts} />
+      <ProductsList
+        countProducts={countProducts}
+        onRemoveProduct={onRemoveProduct}
+      />
 
       {countProducts > 0 ? (
         <>
@@ -43,16 +47,14 @@ const Cart = ({ onRemoveProduct, handleModal, showModal }) => {
           </div>
 
           <Button onClick={handleModal}>Confirm Order</Button>
-          {/* {showModal &&
+          {showModal &&
             createPortal(
               <OrderSuccess
                 handleModal={handleModal}
-                products={products}
-                cartProducts={cartProducts}
                 onRemoveProduct={onRemoveProduct}
               />,
               document.body
-            )} */}
+            )}
         </>
       ) : null}
     </aside>

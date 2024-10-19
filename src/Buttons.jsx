@@ -16,6 +16,10 @@ const Icon = ({ icon }) => {
       break;
     case "decrease":
       selectedIcon = DecreaseIcon;
+      break;
+    case "remove":
+      selectedIcon = RemoveIcon;
+      break;
   }
 
   return <img src={selectedIcon} alt="icon" className="button__icon" />;
@@ -51,22 +55,10 @@ export const ButtonContainer = ({
   );
 };
 
-const ButtonIcon = ({ onClick, icon }) => {
+export const ButtonIcon = ({ onClick, icon, className }) => {
   return (
-    <button className="button-icon" onClick={() => onClick()}>
+    <button className={`button-icon ${className}`} onClick={() => onClick()}>
       <Icon icon={icon} />
-    </button>
-  );
-};
-
-export const RemoveProduct = ({ id, onRemoveProduct }) => {
-  return (
-    <button className="button--remove" onClick={() => onRemoveProduct(id)}>
-      <img
-        src={RemoveIcon}
-        alt="Remove product from the cart"
-        className="button--remove__icon"
-      />
     </button>
   );
 };

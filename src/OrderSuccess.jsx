@@ -1,15 +1,23 @@
-import "./OrderSuccess.css";
+import { useContext } from "react";
+import { ProductsContext, CartProductsContext } from "./utils/ProductsContext";
 
 import { Button } from "./Buttons";
-import { MinifiedProducts } from "./Products";
+import ProductsList from "./ProductsList";
 import SuccessIcon from "./assets/icon-order-confirmed.svg";
 
-const OrderSuccess = ({
-  handleModal,
-  products,
-  cartProducts,
-  onRemoveProduct,
-}) => {
+import "./OrderSuccess.css";
+
+const OrderSuccess = ({ handleModal, onRemoveProduct }) => {
+  const products = useContext(ProductsContext);
+  const cartProducts = useContext(CartProductsContext);
+
+  let countProducts = 0;
+
+  for (const product in cartProducts) {
+    const productData = products.filter((p) => p.id == product)[0];
+    countProducts += cartProducts[product];
+  }
+
   return (
     <div className="modal">
       <div className="order">
@@ -20,11 +28,13 @@ const OrderSuccess = ({
             We hope you enjoy your food!
           </p>
         </div>
-        <MinifiedProducts
-          products={products}
-          cartProducts={cartProducts}
+
+        <ProductsList
+          countProducts={countProducts}
+          type="secondary"
           onRemoveProduct={onRemoveProduct}
         />
+
         <Button onClick={handleModal}>Start New Order</Button>
       </div>
     </div>
