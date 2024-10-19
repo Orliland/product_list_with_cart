@@ -3,9 +3,9 @@ import { ProductsContext } from "./utils/ProductsContext";
 
 import ProductCard from "./Product/ProductCard";
 
-import "./Products.css";
+import "./ProductsGrid.css";
 
-const ProductsGrid = ({ onAddToCart, onRemoveFromCart }) => {
+const ProductsGrid = ({ onIncreaseProduct, onDecreaseProduct }) => {
   const products = useContext(ProductsContext);
 
   return (
@@ -15,8 +15,8 @@ const ProductsGrid = ({ onAddToCart, onRemoveFromCart }) => {
           <ProductCard
             key={product.id}
             product={product}
-            onAddToCart={onAddToCart}
-            onRemoveFromCart={onRemoveFromCart}
+            onIncreaseProduct={onIncreaseProduct}
+            onDecreaseProduct={onDecreaseProduct}
           />
         );
       })}

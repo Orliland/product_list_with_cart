@@ -14,23 +14,6 @@
   color: var(--red);
 }
 
-.cart--empty {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--s-200);
-
-  padding-block: var(--s-200);
-}
-
-.cart--empty__image {
-  width: 12.8rem;
-}
-
-.cart--empty__description {
-  color: var(--rose-500);
-}
-
 @media (min-width: 1024px) {
   .cart {
     min-width: 384px;

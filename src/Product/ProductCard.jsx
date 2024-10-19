@@ -5,7 +5,7 @@ import { Button, ButtonContainer } from "../Buttons";
 
 import "./ProductCard.css";
 
-const ProductCard = ({ product, onAddToCart, onRemoveFromCart }) => {
+const ProductCard = ({ product, onIncreaseProduct, onDecreaseProduct }) => {
   const cartProducts = useContext(CartProductsContext);
 
   return (
@@ -20,8 +20,8 @@ const ProductCard = ({ product, onAddToCart, onRemoveFromCart }) => {
         {cartProducts[product.id] ? (
           <ButtonContainer
             productId={product.id}
-            onAddToCart={onAddToCart}
-            onRemoveFromCart={onRemoveFromCart}
+            onIncreaseProduct={onIncreaseProduct}
+            onDecreaseProduct={onDecreaseProduct}
           >
             {cartProducts[product.id]}
           </ButtonContainer>
@@ -30,7 +30,7 @@ const ProductCard = ({ product, onAddToCart, onRemoveFromCart }) => {
             type="secondary"
             icon="cart"
             onClick={() => {
-              onAddToCart(product.id);
+              onIncreaseProduct(product.id);
             }}
           >
             Add to Cart

@@ -1,0 +1,21 @@
+.divisor {
+  border: none;
+  border-bottom: 0.1rem solid var(--rose-100);
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-200);
+
+  padding-block: var(--s-200);
+}
+
+.empty__image {
+  width: 12.8rem;
+}
+
+.empty__description {
+  color: var(--rose-500);
+}

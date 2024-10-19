@@ -40,7 +40,7 @@ const App = () => {
     }
   }, [cartProducts]);
 
-  const handleAddToCart = (id) => {
+  const handleIncreaseProduct = (id) => {
     if (cartProducts[id]) {
       setCartProducts({ ...cartProducts, [id]: cartProducts[id] + 1 });
     } else {
@@ -48,7 +48,7 @@ const App = () => {
     }
   };
 
-  const handleRemoveFromCart = (id) => {
+  const handleDecreaseProduct = (id) => {
     if (cartProducts[id] == 1) {
       const newObject = { ...cartProducts };
       delete newObject[id];
@@ -82,12 +82,10 @@ const App = () => {
           <ProductsGrid
             cartProducts={cartProducts}
             products={products}
-            onAddToCart={handleAddToCart}
-            onRemoveFromCart={handleRemoveFromCart}
+            onIncreaseProduct={handleIncreaseProduct}
+            onDecreaseProduct={handleDecreaseProduct}
           />
           <Cart
-            cartProducts={cartProducts}
-            products={products}
             onRemoveProduct={handleRemoveProduct}
             showModal={showModal}
             handleModal={handleModal}
